@@ -1,0 +1,109 @@
+<%- include("partials/header") %>
+
+<main id="main">
+
+  <%- include("partials/breadcrumbs") %>
+ 
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="pictures\Bindura Fertilizer inspection (4).jpeg" alt="" class="img-fluid">
+              </div>
+
+              <h2 id="inspection" class="entry-title">
+                <a href="">Inspection Services</a>
+              </h2>
+
+              <h3 id="warehouse-inspection">Warehouse Inspection Services</h3>
+              <p>
+                We conduct competent warehouse inspection services, assuring that your inventory is stored safely. Giving you peace of mind and assuring that no unforeseen events will interfere with a smooth service delivery to you customers.
+              </p>
+              <h3 id="stock-audits">Stock Audits</h3>
+              <p>
+                We offer accurate stock audit services to help you verify how many physical assets are available in your inventory therefore giving you insights on when to restock so as to not interrupt the smooth supply chain of your products or services.
+                Our team of professional trained auditors will accurately report on the state, quantity and storage quality of your inventory.
+              </p>
+              <h3 id="loading-and-offloading-super-attendance">Loading and offloading Superintendence</h3>
+              <p>
+                We offer loading and offloading superintendence to ensure that your goods are properly handled during every stage of the transportation process and to ensure that the goods and personnel involved arrive safely at the products destination.
+              </p>
+              <h3>Sampling and Laboratory Analysis</h3>
+              <p>
+                We offer laboratory analysis services for a myriad of products and we ensure to handle all samples with care so as to preserve their integrity and the quality of results obtained from the tests conducted.
+              </p>
+
+              <br><br>
+
+              
+              <div class="entry-img">
+                <img src="pictures\inspection.jpg" alt="" class="img-fluid">
+              </div>
+              
+              <h2 id="survey" class="entry-title">
+                <a href="">Cargo Survey Services</a>
+              </h2>
+
+              <h3 id="damage-assessment">Damage Assessment</h3>
+              
+              <p>
+                We understand that accidents happen unexpectedly and they need to be taken care of in time to prevent them negatively affecting your operations, because of this we offer early response damage assessment services to gather information on the extents of damage done to you cargo.
+              </p>
+              <h3 id="road-accident-investigation">Road Accident & Theft Investigation</h3>
+              <p>
+                We offer diligent Road Accident and Theft investigation services to help you determine what caused the accident and to identify anything that has been stolen from the crash site.
+              </p>
+              <h3 id="repair-facilitation">Facilitation of Repairs</h3>
+              <p>
+                We offer repair facilitation services to help you repair damaged equipment and machinery. We work with trained experienced professionals to facilitate repairs and ensure that they are done skillfully.
+              </p>
+              <h3 id="market-search">Market Search & Salvage Sale</h3>
+              <p>
+                We conduct market search and salvage sale services to help you find buyers for damaged equipment or machinery. We help you find buyers who offer the best price for the machinery or equipment in its current state.
+              </p>
+
+ 
+            </article><!-- End blog entry -->
+
+          </div><!-- End blog entries list -->
+
+          <% if (newsletters.length > 0) { %>
+            <div class="col-lg-4">
+
+              <div class="sidebar">
+  
+                <h3 class="sidebar-title">Recent News</h3>
+                <div class="sidebar-item recent-posts">
+  
+                  <% newsletters.forEach (newsletter => { %>
+
+                    <div class="post-item clearfix">
+                      <img src="<%= newsletter.image %>" alt="">
+                      <h4><a href=""><%= newsletter.title %></a></h4>
+                      <time datetime="2020-01-01"><%= newsletter.createdAt %></time>
+                    </div>
+
+                  <% }); %>
+  
+                </div><!-- End sidebar recent posts-->
+  
+              </div><!-- End sidebar -->
+  
+            </div><!-- End blog sidebar -->
+          <% } %>
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+<%- include("partials/footer") %>

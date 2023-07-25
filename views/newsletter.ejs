@@ -1,0 +1,88 @@
+<%- include("partials/header") %>
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/newsletters">News</a></li>
+          <li><a href="/newsletters/<%= newsletter.slug %>"><%= newsletter.title %></a></li>
+        </ol>
+        <h2><%= newsletter.title %></h2>
+      </div>
+    </section><!-- End Breadcrumbs -->
+    
+    
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-8 entries">
+
+            <article class="entry entry-single">
+
+              <div class="entry-img">
+                <img src="<%= newsletter.image %>" alt="D'accord Inspection Solutions | <%= newsletter.title %>" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="">
+                  <%= newsletter.title %>
+                </a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i><%= newsletter.createdAt %></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+
+                <%- newsletter.sanitizedHtml %> 
+
+              </div>
+
+            </article><!-- End blog entry -->
+
+          </div><!-- End blog entries list -->
+
+          
+          <% if (newsletters.length > 0) { %>
+            <div class="col-lg-4">
+
+              <div class="sidebar">
+  
+                <h3 class="sidebar-title">More News</h3>
+                <div class="sidebar-item recent-posts">
+  
+                  <% newsletters.forEach (newsletter => { %>
+
+                    <div class="post-item clearfix">
+                      <img src="<%= newsletter.image %>" alt="">
+                      <h4><a href="/newsletters/<%= newsletter.slug %>"><%= newsletter.title %></a></h4>
+                      <time datetime="2020-01-01"><%= newsletter.createdAt %></time>
+                    </div>
+
+                  <% }); %>
+  
+                </div><!-- End sidebar recent posts-->
+  
+              </div><!-- End sidebar -->
+  
+            </div><!-- End blog sidebar -->
+          <% } %>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+<%- include("partials/footer") %>
