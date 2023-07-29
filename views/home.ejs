@@ -521,9 +521,9 @@
                             <div class="validate"></div>
                         </div>
                         <div class="mb-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message">There was a problem sending your message. Please try again.</div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
+                            <div class="loading" style="display: none;">Loading</div>
+                            <div class="error-message" style="display: none;">There was a problem sending your message. Please try again.</div>
+                            <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
                         </div>
                         <div class="text-center">
                             <button type="submit">Send Message</button>
@@ -534,6 +534,49 @@
             </div>
 
         </div>
+        
+        <script>
+            const form = document.querySelector(".php-email-form");
+            const loadingMessage = document.querySelector(".loading");
+            const errorMessage = document.querySelector(".error-message");
+            const successMessage = document.querySelector(".sent-message");
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                loadingMessage.style.display = "block";
+                errorMessage.style.display = "none";
+                successMessage.style.display = "none";
+
+                const formData = new FormData(form);
+                const data = {};
+                formData.forEach((value, key) => (data[key] = value));
+
+                try {
+                    const response = await fetch("/contact", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                        successMessage.style.display = "block";
+                        form.reset();
+                    } else {
+                        errorMessage.style.display = "block";
+                    }
+
+                    loadingMessage.style.display = "none";
+                } catch (error) {
+                    console.error("Error sending the message:", error);
+                    errorMessage.style.display = "block";
+                    loadingMessage.style.display = "none";
+                }
+            });
+        </script>
+
     </section>
     <!-- End Contact Section -->
 

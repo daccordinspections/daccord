@@ -1,5 +1,4 @@
-www.daccord.com
-
-google cloud console : website mailing api details:
-Client ID: 252969052180-e557o8fv139m05m90cjt4cgfbucb95ar.apps.googleusercontent.com
-Client Secret: aq0Yk42JhqekSsq35nzbvFHy
+Company:            Daccord Inspection Solutions Limited
+Domain:             www.daccord.com
+Website devloper:   Visoroy
+Developer Domain:   www.visoroy.com
