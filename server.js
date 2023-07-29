@@ -7,7 +7,7 @@ const app = express();
 
 // 
 require("./server/app")(app, express);
-require("./server/databaseConnect");
+// require("./server/databaseConnect");
 
 // routes
 require("./routes/contact")(app);
